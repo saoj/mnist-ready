@@ -67,10 +67,8 @@ class MnistDataset
         s += pretty_hash(count_digits(test_set))
         s += "\n"
 
-        digit = all_set[rand(all_set.size)]
+        digit = all_set.sample
         s += digit.ascii_image
-        s += "\n"
-        s += digit.pixel_image
         s += "\n"
     end
 
@@ -78,7 +76,7 @@ class MnistDataset
 
     def get_label_and_pixels(row)
         label = row[0].to_i
-        pixels = row[1..728].map(&:to_i)
+        pixels = row[1..784].map(&:to_i)
         return label, pixels
     end
 
