@@ -51,6 +51,7 @@ class MnistDataset
 
         s = "MNIST-READY #{@@VERSION} (#{@@YEAR})\n"
         s += "Author: Sergio Oliveira Jr\n"
+        s += "LinkedIn: https://www.linkedin.com/in/soliveira/\n"
         s += "URL: https://github.com/saoj/mnist-ready\n"
         s += "License: MIT\n"
         s += "\n"
