@@ -2,6 +2,9 @@
 
 A simple and straightforward Ruby library that handles everything related to the [MNIST Database](https://en.wikipedia.org/wiki/MNIST_database). It uses the *"don't make me think"* approach so you can focus on your revolutionary neural network. You don't even need to download the MNIST Database, everything is included and works out of the box. Just install the `mnist-ready` gem and be happy.
 
+## ATTENTION
+It currently does not work inside `irb` or `jupyter`. It only works when you use it inside a ruby source code file and run it with `ruby my_code.rb`. When you call `MnistDataset.instance` inside irb, it never returns :( Like it is taking forever to load the digits to memory. It simply freezes and you have to hit `CTRL+C` to interrupt. It does not work with Jupyter either :( **If you know how to fix this please get in touch.**
+
 ## Installation
 
 ```ruby
@@ -219,4 +222,5 @@ Total number of test digits: 10000
 
 ## Roadmap
 - Port it to Python which is a more popular programming language for AI
-
+- Option for the `instance` method `show_progress` so that you can see the progress as the digits are being loaded to memory
+- Provide an option to load the digits one by one from disk, instead of loading them all to memory
