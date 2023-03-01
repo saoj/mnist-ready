@@ -13,7 +13,6 @@ class MnistDataset
   
     def initialize
         test_set = File.join(File.dirname(__FILE__), '..', 'data', 'mnist_test.csv')
-        train_set = File.join(File.dirname(__FILE__), '..', 'data', 'mnist_train.csv')
 
         @train_set = []
         @test_set = []
@@ -26,11 +25,14 @@ class MnistDataset
             @all_set.push(digit)
         end
 
-        CSV.foreach(train_set) do |row|
-            label, pixels = get_label_and_pixels(row)
-            digit = MnistDigit.new(label, pixels)
-            @train_set.push(digit)
-            @all_set.push(digit)
+        (1..3).each do |index|
+            train_set = File.join(File.dirname(__FILE__), '..', 'data', "mnist_train#{index}.csv")
+            CSV.foreach(train_set) do |row|
+                label, pixels = get_label_and_pixels(row)
+                digit = MnistDigit.new(label, pixels)
+                @train_set.push(digit)
+                @all_set.push(digit)
+            end
         end
 
     end
