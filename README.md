@@ -150,6 +150,7 @@ puts "\n#{MnistDataset.instance.info}"
 
 MNIST-READY 1.0.1 (2023)
 Author: Sergio Oliveira Jr
+LinkedIn: https://www.linkedin.com/in/soliveira/
 URL: https://github.com/saoj/mnist-ready
 License: MIT
 
