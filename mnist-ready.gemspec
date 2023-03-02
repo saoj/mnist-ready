@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |s|
     s.name        = 'mnist-ready'
-    s.version     = '1.0.1'
+    s.version     = '1.0.2'
     s.licenses    = ['MIT']
     s.summary     = "A simple and straightforward Ruby library that handles everything related to the MNIST database."
     s.authors     = ["Sergio Oliveira Jr"]
