@@ -4,7 +4,7 @@ require 'json'
 
 class MnistDataset
 
-    @@VERSION = "1.0.2"
+    @@VERSION = "1.1.1"
     @@YEAR = "2023"
 
     @instance_mutex = Mutex.new
@@ -47,6 +47,11 @@ class MnistDataset
         @instance ||= new(show_progress)
       end
       @instance
+    end
+
+    # very important to override this otherwise inspect will go crazy trying to inspect 70000 elements
+    def inspect
+      to_s  
     end
 
     def info 
