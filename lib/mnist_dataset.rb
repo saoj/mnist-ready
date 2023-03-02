@@ -4,14 +4,14 @@ require 'json'
 
 class MnistDataset
 
-    @@VERSION = "1.0.1"
+    @@VERSION = "1.0.2"
     @@YEAR = "2023"
 
     @instance_mutex = Mutex.new
   
     private_class_method :new
   
-    def initialize
+    def initialize(show_progress)
         test_set = File.join(File.dirname(__FILE__), '..', 'data', 'mnist_test.csv')
 
         @train_set = []
@@ -23,6 +23,7 @@ class MnistDataset
             digit = MnistDigit.new(label, pixels)
             @test_set.push(digit)
             @all_set.push(digit)
+            print "\r#{all_set.size}" if show_progress
         end
 
         (1..3).each do |index|
@@ -32,17 +33,18 @@ class MnistDataset
                 digit = MnistDigit.new(label, pixels)
                 @train_set.push(digit)
                 @all_set.push(digit)
+                print "\r#{all_set.size}" if show_progress
             end
         end
-
+        puts if show_progress
     end
 
     attr_reader :all_set, :train_set, :test_set
 
-    def self.instance
+    def self.instance(show_progress = false)
       return @instance if @instance
       @instance_mutex.synchronize do
-        @instance ||= new
+        @instance ||= new(show_progress)
       end
       @instance
     end
