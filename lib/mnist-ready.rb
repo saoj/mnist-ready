@@ -2,7 +2,7 @@ require_relative 'mnist_dataset.rb'
 
 =begin
 
-MNIST = MnistDataset.instance
+MNIST = MnistDataset.instance(show_progress = true)
 
 # 70,000 digits in total
 puts MNIST.all_set.size # => 70000
