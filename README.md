@@ -217,10 +217,34 @@ Total number of test digits: 10000
 |____________________________|
 ```
 
+## Showing the Image on the Terminal (iTerm2)
+
+You need to install the `imagemagick` native library and then the `rmagick` gem
+
+For Mac:
+```bash
+brew install imagemagick
+```
+
+For Linux (Ubuntu):
+```bash
+sudo apt-get update
+sudo apt-get install imagemagick libmagickwand-dev
+```
+
+Then install the gem `rmagick`
+```bash
+gem install rmagick
+```
+
+Then go ahead and have fun:
+
+<img width="860" alt="Screenshot 2024-09-19 at 1 55 27 PM" src="https://github.com/user-attachments/assets/fd24c71d-ce7d-46b7-b74f-f0fcce59a97a">
+
 ## Roadmap
 - Port it to Python which is a more popular programming language for AI
 - DONE => Option for the `instance` method `show_progress` so that you can see the progress as the digits are being loaded to memory
 - DONE => Option for the `instance` method `just_one` so that you can load only one digit for testing instead of the whole thing
 - Provide an option to load the digits one by one from disk, instead of loading them all to memory
 - Provide a shuffle message to shuffle all arrays: train, test and all (this can be easily done by the user, but we should offer that for convenience)
-- Show the real image in the terminal
+- DONE => Show the real image on the terminal
