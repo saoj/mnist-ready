@@ -13,6 +13,12 @@ class MnistDigit
     def pixels
       @pixels
     end
+
+    def png_image(white_background = false)
+      require_relative 'draw_image.rb'
+      puts
+      DrawImage.draw(pixels, white_background)
+    end
   
     def ascii_image
       img = ""
