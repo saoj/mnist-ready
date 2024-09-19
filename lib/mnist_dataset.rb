@@ -111,8 +111,3 @@ class MnistDataset
     end
 
 end
-
-
-MNIST = MnistDataset.instance(show_progress = false, just_one = true)
-
-puts MnistDataset.instance.info
