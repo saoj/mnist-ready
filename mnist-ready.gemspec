@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |s|
     s.name        = 'mnist-ready'
-    s.version     = '1.1.2'
+    s.version     = '1.1.4'
     s.licenses    = ['MIT']
     s.summary     = "A simple and straightforward Ruby library that handles everything related to the MNIST database."
     s.authors     = ["Sergio Oliveira Jr"]
@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
     s.files       = Dir['lib/**/*.rb'] + Dir['data/*.csv']
     s.homepage    = 'https://github.com/saoj/mnist-ready'
     s.required_ruby_version = '>= 3.0.0'
+    #s.add_dependency "rmagick", "~> 6.0" # This requires native libraries installation so let's not do it automatically
   end
