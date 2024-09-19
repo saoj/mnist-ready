@@ -11,7 +11,7 @@ class MnistDataset
   
     private_class_method :new
   
-    def initialize(show_progress)
+    def initialize(show_progress, just_one)
         test_set = File.join(File.dirname(__FILE__), '..', 'data', 'mnist_test.csv')
 
         @train_set = []
@@ -24,6 +24,7 @@ class MnistDataset
             @test_set.push(digit)
             @all_set.push(digit)
             print "\r#{all_set.size}" if show_progress
+            break if just_one
         end
 
         (1..3).each do |index|
@@ -34,17 +35,19 @@ class MnistDataset
                 @train_set.push(digit)
                 @all_set.push(digit)
                 print "\r#{all_set.size}" if show_progress
+                break if just_one
             end
+            break if just_one
         end
         puts if show_progress
     end
 
     attr_reader :all_set, :train_set, :test_set
 
-    def self.instance(show_progress = false)
+    def self.instance(show_progress = false, just_one = false)
       return @instance if @instance
       @instance_mutex.synchronize do
-        @instance ||= new(show_progress)
+        @instance ||= new(show_progress, just_one)
       end
       @instance
     end
@@ -97,15 +100,19 @@ class MnistDataset
 
     def count_digits(hash) 
         count = {}
+        (0..9).each do |label|
+            count[label] = 0
+        end
         hash.each do |digit|
-            label = digit.label
-            if count.has_key?(label)
-                count[label] = count[label] + 1
-            else
-                count[label] = 1
-            end
+          label = digit.label
+          count[label] = count[label] + 1
         end
         count
     end
 
 end
+
+
+MNIST = MnistDataset.instance(show_progress = false, just_one = true)
+
+puts MnistDataset.instance.info
