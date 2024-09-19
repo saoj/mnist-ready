@@ -220,6 +220,7 @@ Total number of test digits: 10000
 ## Roadmap
 - Port it to Python which is a more popular programming language for AI
 - DONE => Option for the `instance` method `show_progress` so that you can see the progress as the digits are being loaded to memory
+- DONE => Option for the `instance` method `just_one` so that you can load only one digit for testing instead of the whole thing
 - Provide an option to load the digits one by one from disk, instead of loading them all to memory
 - Provide a shuffle message to shuffle all arrays: train, test and all (this can be easily done by the user, but we should offer that for convenience)
 - Show the real image in the terminal
